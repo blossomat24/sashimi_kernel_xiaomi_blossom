@@ -85,7 +85,7 @@ int vfs_getattr_nosec(const struct path *path, struct kstat *stat,
 EXPORT_SYMBOL(vfs_getattr_nosec);
 
 #ifdef CONFIG_NOMOUNT
-extern int nomount_handle_getattr(int ret, const struct path *path, struct kstat *stat);
+#include <linux/nomount.h>
 #endif
 
 /*

@@ -239,7 +239,7 @@ static void get_fs_root_rcu(struct fs_struct *fs, struct path *root)
 }
 
 #ifdef CONFIG_NOMOUNT
-extern char *nomount_handle_dpath(const struct path *path, char *buf, int buflen);
+#include <linux/nomount.h>
 #endif
 
 /**

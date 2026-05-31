@@ -129,8 +129,7 @@
 #define EMBEDDED_NAME_MAX	(PATH_MAX - offsetof(struct filename, iname))
 
 #ifdef CONFIG_NOMOUNT
-extern struct filename *nomount_handle_getname(struct filename *name);
-extern int nomount_handle_permission(struct inode *inode, int mask);
+#include <linux/nomount.h>
 #endif
 
 struct filename *

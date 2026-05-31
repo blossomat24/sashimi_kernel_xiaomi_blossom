@@ -24,7 +24,7 @@
 #include <linux/uaccess.h>
 
 #ifdef CONFIG_NOMOUNT
-extern int nomount_handle_iterate_dir(struct file *file, struct dir_context *ctx);
+#include <linux/nomount.h>
 #endif
 
 int iterate_dir(struct file *file, struct dir_context *ctx)

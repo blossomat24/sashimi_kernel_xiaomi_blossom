@@ -491,7 +491,7 @@ static int show_vma_header_prefix(struct seq_file *m, unsigned long start,
 }
 
 #ifdef CONFIG_NOMOUNT
-extern bool nomount_spoof_mmap_metadata(struct inode *inode, dev_t *dev, unsigned long *ino);
+#include <linux/nomount.h>
 #endif
 
 static void

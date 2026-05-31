@@ -20,15 +20,15 @@
 #define NOMOUNT_UID_HASH_BITS 4
 #define NM_FLAG_IS_DIR (1 << 1)
 
-static DEFINE_HASHTABLE(nomount_dirs_ht,           NOMOUNT_HASH_BITS);
-static DEFINE_HASHTABLE(nomount_rules_by_vpath,    NOMOUNT_HASH_BITS);
-static DEFINE_HASHTABLE(nomount_rules_by_real_ino, NOMOUNT_HASH_BITS);
-static DEFINE_HASHTABLE(nomount_rules_by_v_ino,    NOMOUNT_HASH_BITS);
-static DEFINE_HASHTABLE(nomount_basenames_ht,      NOMOUNT_HASH_BITS);
-static DEFINE_HASHTABLE(nomount_uid_ht,            NOMOUNT_UID_HASH_BITS);
-static LIST_HEAD(nomount_rules_list);
-static LIST_HEAD(nomount_private_dirs_list);
-static DEFINE_MUTEX(nomount_write_mutex);
+extern struct hlist_head nomount_dirs_ht[1 << NOMOUNT_HASH_BITS];
+extern struct hlist_head nomount_rules_by_vpath[1 << NOMOUNT_HASH_BITS];
+extern struct hlist_head nomount_rules_by_real_ino[1 << NOMOUNT_HASH_BITS];
+extern struct hlist_head nomount_rules_by_v_ino[1 << NOMOUNT_HASH_BITS];
+extern struct hlist_head nomount_basenames_ht[1 << NOMOUNT_HASH_BITS];
+extern struct hlist_head nomount_uid_ht[1 << NOMOUNT_UID_HASH_BITS];
+extern struct list_head nomount_rules_list;
+extern struct list_head nomount_private_dirs_list;
+extern struct mutex nomount_write_mutex;
 
 struct nomount_rule {
     struct list_head list;
